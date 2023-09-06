@@ -46,7 +46,7 @@ class BusquedaLogController extends Controller
         ])
             ->get();
 
-        return view('Buscar.buscarLog', compact('query')); 
+        return view('buscar.buscarLog', compact('query')); 
     }
 
     /**

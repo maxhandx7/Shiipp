@@ -46,7 +46,7 @@ class BusquedaController extends Controller
         ])
             ->get();
 
-        return view('Buscar.buscar', compact('query')); 
+        return view('buscar.buscar', compact('query')); 
     }
 
     /**
