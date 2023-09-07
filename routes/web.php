@@ -41,14 +41,14 @@ Route::resource('Configuracion', 'EmpresasController');
 
 //controladores usuarios registrados
 Route::resource('mis-reservas','MisReservasController');
-Route::resource('/BusquedaLog','BusquedaLogController');
-Route::resource('ReservarLog','ReservasLogController');
+Route::resource('busquedaLog','BusquedaLogController');
+Route::resource('reservarLog','ReservasLogController');
 
 //controladores usuarios
 
-Route::resource('Busqueda','BusquedaController')->names('Busqueda');
-Route::resource('Reservar','ReservasController');
-Route::resource('Nueva-reserva','NuevaReservaController');
+Route::resource('busqueda','BusquedaController')->names('busqueda');
+Route::resource('reservar','ReservasController');
+Route::resource('nueva-reserva','NuevaReservaController');
 
 //controladores de correos
 Route::resource('Enviar','MailController');

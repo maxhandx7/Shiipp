@@ -197,7 +197,7 @@
       
       <div class="modal-footer">
 
-{!! Form::open(['route' => 'Busqueda.store', 'method'=>'POST']) !!}
+{!! Form::open(['route' => 'busqueda.store', 'method'=>'POST']) !!}
   <div class="form-group">
    
     {{ Form::label('Fecha de viaje', null) }}
@@ -229,7 +229,7 @@
       
       <div class="modal-footer">
 
-{!! Form::open(['route' => 'Busqueda.store', 'method'=>'POST']) !!}
+{!! Form::open(['route' => 'busqueda.store', 'method'=>'POST']) !!}
   <div class="form-group">
     {{ Form::label('Fecha de viaje', null) }}
    <?php echo"<input type='date' name='fecha-salida' class='form-control' required min=$fecha >" ?>
@@ -259,7 +259,7 @@
       
       <div class="modal-footer">
 
-{!! Form::open(['route' => 'Busqueda.store', 'method'=>'POST']) !!}
+{!! Form::open(['route' => 'busqueda.store', 'method'=>'POST']) !!}
   <div class="form-group">
     {{ Form::label('Fecha de viaje', null) }}
     <?php echo"<input type='date' name='fecha-salida' class='form-control' required min=$fecha >" ?>
@@ -288,7 +288,7 @@
       
       <div class="modal-footer">
 
-{!! Form::open(['route' => 'Busqueda.store', 'method'=>'POST']) !!}
+{!! Form::open(['route' => 'busqueda.store', 'method'=>'POST']) !!}
   <div class="form-group">
     {{ Form::label('Fecha de viaje', null) }}
     <?php echo"<input type='date' name='fecha-salida' class='form-control' required min=$fecha >" ?>
@@ -318,7 +318,7 @@
       
       <div class="modal-footer">
 
-{!! Form::open(['route' => 'Busqueda.store', 'method'=>'POST']) !!}
+{!! Form::open(['route' => 'busqueda.store', 'method'=>'POST']) !!}
   <div class="form-group">
     {{ Form::label('Fecha de viaje', null) }}
     <?php echo"<input type='date' name='fecha-salida' class='form-control' required min=$fecha >" ?>
@@ -348,7 +348,7 @@
       
       <div class="modal-footer">
 
-{!! Form::open(['route' => 'Busqueda.store', 'method'=>'POST']) !!}
+{!! Form::open(['route' => 'busqueda.store', 'method'=>'POST']) !!}
   <div class="form-group">
     {{ Form::label('Fecha de viaje', null) }}
     <?php echo"<input type='date' name='fecha-salida' class='form-control' required min=$fecha >" ?>
@@ -378,7 +378,7 @@
       
       <div class="modal-footer">
 
-{!! Form::open(['route' => 'Busqueda.store', 'method'=>'POST']) !!}
+{!! Form::open(['route' => 'busqueda.store', 'method'=>'POST']) !!}
   <div class="form-group">
     {{ Form::label('Fecha de viaje', null) }}
     <?php echo"<input type='date' name='fecha-salida' class='form-control' required min=$fecha >" ?>
@@ -407,7 +407,7 @@
       
       <div class="modal-footer">
 
-{!! Form::open(['route' => 'Busqueda.store', 'method'=>'POST']) !!}
+{!! Form::open(['route' => 'busqueda.store', 'method'=>'POST']) !!}
   <div class="form-group">
     {{ Form::label('Fecha de viaje', null) }}
     <?php echo"<input type='date' name='fecha-salida' class='form-control' required min=$fecha >" ?>
@@ -437,7 +437,7 @@
       
       <div class="modal-footer">
 
-{!! Form::open(['route' => 'Busqueda.store', 'method'=>'POST']) !!}
+{!! Form::open(['route' => 'busqueda.store', 'method'=>'POST']) !!}
   <div class="form-group">
     {{ Form::label('Fecha de viaje', null) }}
     <?php echo"<input type='date' name='fecha-salida' class='form-control' required min=$fecha >" ?>
@@ -466,7 +466,7 @@
       
       <div class="modal-footer">
 
-{!! Form::open(['route' => 'Busqueda.store', 'method'=>'POST']) !!}
+{!! Form::open(['route' => 'busqueda.store', 'method'=>'POST']) !!}
   <div class="form-group">
     {{ Form::label('Fecha de viaje', null) }}
     <?php echo"<input type='date' name='fecha-salida' class='form-control' required min=$fecha >" ?>

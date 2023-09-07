@@ -44,7 +44,6 @@ class BusquedaController extends Controller
 
             ])
             ->get();
-
         return view('buscar.buscar', compact('query'));
     }
 
