@@ -23,7 +23,7 @@ class BusquedaController extends Controller
      */
     public function create()
     {
-        return view('buscar.buscar');
+        return view('busqueda.buscar');
     }
 
     /**
@@ -44,7 +44,7 @@ class BusquedaController extends Controller
 
             ])
             ->get();
-        return view('buscar.buscar', compact('query'));
+        return view('busqueda.buscar', compact('query'));
     }
 
     /**

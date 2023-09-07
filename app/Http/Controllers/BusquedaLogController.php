@@ -24,7 +24,7 @@ class BusquedaLogController extends Controller
      */
     public function create()
     {
-        return view('buscar.buscarLog');
+        return view('busqueda.buscarLog');
     }
 
     /**
@@ -46,7 +46,7 @@ class BusquedaLogController extends Controller
             ])
             ->get();
 
-        return view('buscar.buscarLog', compact('query'));
+        return view('busqueda.buscarLog', compact('query'));
     }
 
     /**
