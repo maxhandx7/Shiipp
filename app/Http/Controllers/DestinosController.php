@@ -59,17 +59,17 @@ class DestinosController extends Controller
 
     public function basic(){
 
-        return view('Auth.basic');
+        return view('auth.basic');
 
     }
     public function standard(){
 
-        return view('Auth.standard');
+        return view('auth.standard');
 
     }
     public function premium(){
 
-        return view('Auth.premium');
+        return view('auth.premium');
 
     }
    
