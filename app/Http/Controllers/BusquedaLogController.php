@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Destinos;
 use Illuminate\Http\Request;
 
 class BusquedaLogController extends Controller
@@ -34,19 +35,18 @@ class BusquedaLogController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $query = \DB::table('destinos')
-        ->join('users','destinos.Empresa','=','users.name')
-        ->select('destinos.Nombre','destinos.Empresa','destinos.FechaSalida','destinos.HoraSalida','destinos.Cupos','destinos.Valor','users.email','users.tel')
-        ->where([
-                 ['destinos.FechaSalida','=',$request ['fecha-salida']],
-                 ['destinos.Nombre','=',$request ['nombre']],
-                 ['destinos.Cupos','>',0]
-           
-        ])
+
+        $query = Destinos::join('users', 'destinos.Empresa', '=', 'users.name')
+            ->select('destinos.Nombre', 'destinos.Empresa', 'destinos.FechaSalida', 'destinos.HoraSalida', 'destinos.Cupos', 'destinos.Valor', 'users.email', 'users.tel')
+            ->where([
+                ['destinos.FechaSalida', '=', $request['fecha-salida']],
+                ['destinos.Nombre', '=', $request['nombre']],
+                ['destinos.Cupos', '>', 0]
+
+            ])
             ->get();
 
-        return view('buscar.buscarLog', compact('query')); 
+        return view('buscar.buscarLog', compact('query'));
     }
 
     /**

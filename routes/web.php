@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,9 @@
 //cuando hay muchas rutas se utiliza un controlador de recursos
 
 //controladores paginas principales
+
+
+
 Route::get('inicio/', 'DestinosController@index');
 Route::get('login/', 'DestinosController@login');
 Route::get('como-reservar/', 'DestinosController@ComoReservar');

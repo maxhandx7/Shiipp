@@ -53,7 +53,7 @@
                     <ul class="nav navbar-nav navbar-right" id="menu-seccion">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Iniciar Sección</a></li>
+                            <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
                         <li role="presentation"> <a href="{{ url('user-home') }}">Inicio</a></li>

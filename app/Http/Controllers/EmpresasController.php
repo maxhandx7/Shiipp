@@ -15,12 +15,12 @@ class EmpresasController extends Controller
      */
     public function index()
     {
-        $nombre=\Auth::user()->name;
-        $destinos=\DB::table('destinos')->select('id','Nombre','FechaSalida','HoraSalida','Cupos','Valor')
-        ->where('Empresa','=',$nombre)
+        $nombre = \Auth::user()->name;
+        $destinos = \DB::table('destinos')->select('id', 'Nombre', 'FechaSalida', 'HoraSalida', 'Cupos', 'Valor')
+            ->where('Empresa', '=', $nombre)
             ->get();
-        
-        return  view('empresas.destinos-empresa', compact('destinos','nombre'));
+
+        return  view('empresas.destinos-empresa', compact('destinos', 'nombre'));
     }
 
     /**
@@ -41,74 +41,61 @@ class EmpresasController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $destinos=\DB::table('destinos')->select('Nombre','FechaSalida','Empresa','Cupos')          
-         ->where([
-                ['Empresa','=',$request['empresa']],
-                ['Nombre','=',$request['nombre']],
-                ['FechaSalida','=',$request['fecha']],
+
+        $destinos = \DB::table('destinos')->select('Nombre', 'FechaSalida', 'Empresa', 'Cupos')
+            ->where([
+                ['Empresa', '=', $request['empresa']],
+                ['Nombre', '=', $request['nombre']],
+                ['FechaSalida', '=', $request['fecha']],
 
             ])
             ->get();
 
-            
-           $num1=0;
+
+        $num1 = 0;
         foreach ($destinos as $q) {
-            
-            $num=$q->Cupos;
+
+            $num = $q->Cupos;
             $num1 += $num;
-            
         }
-        $num2=$request['cupos'];
-        
-        $reservados=\DB::table('reservas')->select('Cupos_reserva')          
-         ->where([
-                ['Empresa','=',$request['empresa']],
-                ['Destino','=',$request['nombre']],
-                ['FechaSalida','=',$request['fecha']],
+        $num2 = $request['cupos'];
+
+        $reservados = \DB::table('reservas')->select('Cupos_reserva')
+            ->where([
+                ['Empresa', '=', $request['empresa']],
+                ['Destino', '=', $request['nombre']],
+                ['FechaSalida', '=', $request['fecha']],
 
             ])
             ->get();
-        $num3=0;
+        $num3 = 0;
         foreach ($reservados as $a) {
-            
-            $cup=$a->Cupos_reserva;
+
+            $cup = $a->Cupos_reserva;
             $num3 += $cup;
-            
         }
 
-        $num4=($num1+$num2);
-        $num5=$num4+$num3;
-        
+        $num4 = ($num1 + $num2);
+        $num5 = $num4 + $num3;
 
-        
-           if ($num5>\Auth::user()->cupos) {
-                
-            
-             return  Redirect::to('/destinos-empresas')->with('message','creado');
-             
-                
-            }
 
-            else{
-        \App\Destinos::create([
-            'Nombre'=>$request['nombre'],
-            'Empresa'=>$request['empresa'],
-            'FechaSalida'=>$request['fecha'],
-            'HoraSalida'=>$request['hora'],
-            'Cupos'=>$request['cupos'],
-            'Valor'=>$request['valor'],
-        ]);
-        
-        return  Redirect::to('/destinos-empresas')->with('message','hecho');
-       
-            }
-        
-        
-        
-        
 
-        
+        if ($num5 > \Auth::user()->cupos) {
+
+
+            return  Redirect::to('/destinos-empresas')->with('message', 'creado');
+        } else {
+            \App\Destinos::create([
+                'Nombre' => $request['nombre'],
+                'Empresa' => $request['empresa'],
+                'FechaSalida' => $request['fecha'],
+                'HoraSalida' => $request['hora'],
+                'Cupos' => $request['cupos'],
+                'Valor' => $request['valor'],
+            ]);
+
+            return  Redirect::to('/destinos-empresas')->with('message', 'hecho');
+        }
     }
 
     /**
@@ -130,8 +117,8 @@ class EmpresasController extends Controller
      */
     public function edit($id)
     {
-        $user=\App\User::find($id);
-        return view('empresas.edit',['user'=>$user]);
+        $user = \App\User::find($id);
+        return view('empresas.edit', ['user' => $user]);
     }
 
     /**
@@ -143,24 +130,21 @@ class EmpresasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=\App\User::find($id);
-        $nombre=$request['name'];
-        $email=$request['email'];
-        $telefono=$request['tel'];
-        $nit=$request['cedula'];
-        
-        
+        $user = \App\User::find($id);
+        $nombre = $request['name'];
+        $email = $request['email'];
+        $telefono = $request['tel'];
+        $nit = $request['cedula'];
+
+
         $user->fill(['name' => $nombre]);
-        $user->fill(['email'=>$email]);
-        $user->fill(['cedula'=>$nit]);
-        $user->fill(['tel'=>$telefono]);
+        $user->fill(['email' => $email]);
+        $user->fill(['cedula' => $nit]);
+        $user->fill(['tel' => $telefono]);
         $user->save();
 
 
-         return  Redirect::to('/home')->with('message','creado');
-
-         
-
+        return  Redirect::to('/home')->with('message', 'creado');
     }
 
     /**
@@ -172,7 +156,7 @@ class EmpresasController extends Controller
     public function destroy($id)
     {
         \App\Destinos::destroy($id);
-        
-        return  Redirect::to('/destinos-empresas')->with('message','eliminar');
+
+        return  Redirect::to('/destinos-empresas')->with('message', 'eliminar');
     }
 }

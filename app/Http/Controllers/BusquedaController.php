@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Destinos;
 use Illuminate\Http\Request;
 
 class BusquedaController extends Controller
@@ -13,7 +14,6 @@ class BusquedaController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -34,19 +34,18 @@ class BusquedaController extends Controller
      */
     public function store(Request $request)
     {
-       
-        $query = \DB::table('destinos')
-        ->join('users','destinos.Empresa','=','users.name')
-        ->select('destinos.Nombre','destinos.Empresa','destinos.FechaSalida','destinos.HoraSalida','destinos.Cupos','destinos.Valor','users.email','users.tel')
-        ->where([
-                 ['destinos.FechaSalida','=',$request ['fecha-salida']],
-                 ['destinos.Nombre','=',$request ['nombre']],
-                 ['destinos.Cupos','>',0]
-           
-        ])
+
+        $query = Destinos::join('users', 'destinos.Empresa', '=', 'users.name')
+            ->select('destinos.Nombre', 'destinos.Empresa', 'destinos.FechaSalida', 'destinos.HoraSalida', 'destinos.Cupos', 'destinos.Valor', 'users.email', 'users.tel')
+            ->where([
+                ['destinos.FechaSalida', '=', $request['fecha-salida']],
+                ['destinos.Nombre', '=', $request['nombre']],
+                ['destinos.Cupos', '>', 0]
+
+            ])
             ->get();
 
-        return view('buscar.buscar', compact('query')); 
+        return view('buscar.buscar', compact('query'));
     }
 
     /**
@@ -57,8 +56,6 @@ class BusquedaController extends Controller
      */
     public function show($id)
     {
-        
-
     }
 
     /**
