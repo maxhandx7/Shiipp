@@ -46,7 +46,7 @@ Route::resource('ReservarLog','ReservasLogController');
 
 //controladores usuarios
 
-Route::resource('/Busqueda','BusquedaController');
+Route::resource('Busqueda','BusquedaController')->names('Busqueda');
 Route::resource('Reservar','ReservasController');
 Route::resource('Nueva-reserva','NuevaReservaController');
 
