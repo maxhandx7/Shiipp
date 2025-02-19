@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Destination;
 use Illuminate\Http\Request;
 
-class ReservasLogController extends Controller
+class DestinationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,32 +35,16 @@ class ReservasLogController extends Controller
      */
     public function store(Request $request)
     {
-                $fecha=$request ['fecha'];
-                $hora=$request ['hora'];
-                $empresa=$request['empresa'];
-                $destino=$request['destino'];
-                $Cupos=$request['cupos'];
-                $valor=$request['Valor'];
-                $mail=$request['mail'];
-                $tel1=$request['tel'];
-                $res=\DB::table('users')
-                ->select('name','apellido','cedula','email','password','tel')
-                ->where([
-                        ['email','=',\Auth::user()->email],
-                        ['password','=',\Auth::user()->password],
-
-                ])
-                ->get();
-                return view('usuarios.reservas-log', compact('res','fecha','hora','empresa','destino','Cupos','valor','mail','tel1')); 
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Destination $destination)
     {
         //
     }
@@ -67,10 +52,10 @@ class ReservasLogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Destination $destination)
     {
         //
     }
@@ -79,10 +64,10 @@ class ReservasLogController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Destination $destination)
     {
         //
     }
@@ -90,10 +75,10 @@ class ReservasLogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Destination $destination)
     {
         //
     }

@@ -70,7 +70,7 @@
     
     <div id="inner-form" style=" margin-top: 1em;">
   
-    {!! Form::open(['route' => 'Reservar.store', 'method'=>'POST']) !!}
+    {!! Form::open(['route' => 'reservar.store', 'method'=>'POST']) !!}
 
  <div class="form-group "  >
   

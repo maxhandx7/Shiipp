@@ -50,7 +50,7 @@
        <div class="col-md-3 space-row-buscar">
         <h2 style="color: #337ab7; border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding-bottom: 20px; text-align: center;"><sup>$</sup>{{ $user-> Valor}}</h2>
 
-        {!! Form::open(['route' => 'ReservarLog.store', 'method'=>'POST']) !!}
+        {!! Form::open(['route' => 'reservarLog.store', 'method'=>'POST']) !!}
 
 
                           <div class="form-group">

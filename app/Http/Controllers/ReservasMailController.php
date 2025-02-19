@@ -95,7 +95,7 @@ class ReservasMailController extends Controller
         $usuario = $request['email'];
 
        
-       Mail::send('contact.reserva',$request->all(), function($msj) use($empresa){
+       /* Mail::send('contact.reserva',$request->all(), function($msj) use($empresa){
             
             $msj->subject('Nueva reserva');
             $msj->to($empresa);
@@ -109,7 +109,7 @@ class ReservasMailController extends Controller
             $msj->from('contactosship@gmail.com');
 
 
-        });
+        }); */
        
 if (\Auth::check()) {
     echo '<div class="alert alert-success" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Has reservado con exito revisa tu correo para detalles de la reserva</div>';

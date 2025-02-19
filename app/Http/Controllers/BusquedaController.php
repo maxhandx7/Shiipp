@@ -34,7 +34,6 @@ class BusquedaController extends Controller
      */
     public function store(Request $request)
     {
-
         $query = Destinos::join('users', 'destinos.Empresa', '=', 'users.name')
             ->select('destinos.Nombre', 'destinos.Empresa', 'destinos.FechaSalida', 'destinos.HoraSalida', 'destinos.Cupos', 'destinos.Valor', 'users.email', 'users.tel')
             ->where([

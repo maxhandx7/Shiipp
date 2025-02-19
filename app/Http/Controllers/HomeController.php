@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Destination;
+use App\Destinos;
+
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -29,7 +32,7 @@ class HomeController extends Controller
              return view('home');
         }
         else{
-             return view('pasenger');
+           return  redirect('pasenger');
         }
        
     }
@@ -38,8 +41,13 @@ class HomeController extends Controller
         return view('tus-destinos');   
     }
      public function pasenger(){
-
-        return view('pasenger');
+        $destinos = Destinos::all();
+        $destinations = Destination::all();
+        $fechasResaltadasPorNombre = [];
+        foreach ($destinos as $destino) {
+            $fechasResaltadasPorNombre[$destino->Nombre][] = $destino->FechaSalida;
+        }
+             return view('pasenger', compact('fechasResaltadasPorNombre', 'destinations'));
     }
     public function userHome(){
 
